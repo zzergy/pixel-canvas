@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "watch": "tsc --watch & nodemon src/index.ts",
+    "watch": "tsc --watch & nodemon src/index.ts --inspect",
     "start": "nodemon src/index.ts",
     "lint": "eslint"
   },

@@ -8,6 +8,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const user_route_1 = __importDefault(require("./routes/user.route"));
+const connectDB_1 = __importDefault(require("./config/connectDB"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use(express_1.default.json()); // for parsing json request payloads
@@ -32,7 +33,8 @@ app.use((req, res) => {
     return res.status(404).json({ message: "Route not found! :(" });
 });
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+    await (0, connectDB_1.default)();
 });
 //# sourceMappingURL=index.js.map
