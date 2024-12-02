@@ -22,7 +22,7 @@ const register = async (req, res) => {
         ]);
         if (user.rowCount !== 0) {
             return res
-                .status(400)
+                .status(409)
                 .json({ message: "User with this email already exists" });
         }
         // hash the pass
