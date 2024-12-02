@@ -11,7 +11,7 @@ const chalk_1 = __importDefault(require("chalk"));
 exports.pool = new pg_1.Pool({
     user: "postgres",
     host: "localhost",
-    database: "users_auth",
+    database: "pixelCraft",
     password: "postgres",
 });
 // read the content of the database schema
@@ -25,7 +25,7 @@ const createTables = async () => {
         SELECT EXISTS (
             SELECT 1
             FROM information_schema.tables
-            WHERE table_schema = 'users' 
+            WHERE table_schema = 'public' 
             AND table_name = 'users'
         )`);
         const tableExists = result.rows[0].exists;
