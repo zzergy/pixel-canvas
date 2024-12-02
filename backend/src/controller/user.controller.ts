@@ -21,7 +21,7 @@ export const register = async (req: Request, res: Response) => {
 
     if (user.rowCount !== 0) {
       return res
-        .status(400)
+        .status(409)
         .json({ message: "User with this email already exists" });
     }
 
@@ -30,7 +30,7 @@ export const register = async (req: Request, res: Response) => {
     const hashedPass = await bcrypt.hash(password, salt);
 
     // add the user to the database
-    const query = "INSERT INTO users (email, password) values ($1,$2)";
+    const query = "INSERT INTO users (email, password) values ($1, $2)";
     await pool.query(query, [email, hashedPass]);
 
     return res.status(200).json({ message: "User registered successfully!" });

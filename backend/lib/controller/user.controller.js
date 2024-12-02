@@ -29,7 +29,7 @@ const register = async (req, res) => {
         const salt = await bcryptjs_1.default.genSalt(10);
         const hashedPass = await bcryptjs_1.default.hash(password, salt);
         // add the user to the database
-        const query = "INSERT INTO users (email, password) values ($1 $2)";
+        const query = "INSERT INTO users (email, password) values ($1, $2)";
         await connectDB_1.pool.query(query, [email, hashedPass]);
         return res.status(200).json({ message: "User registered successfully!" });
     }
