@@ -50,4 +50,12 @@ code {
   padding: 0 8px 12px 8px;
 }
 
+/**************** Notistack styling tweaks ****************/
+.notistack-MuiContent-success {
+  background-color: #4de864 !important;
+}
+
+.notistack-MuiContent-error {
+  background-color: #ff3763 !important;
+}
 /**************************************************************/

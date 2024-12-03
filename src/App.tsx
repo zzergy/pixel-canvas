@@ -10,6 +10,7 @@ import { customTheme } from "./customTheme";
 import { PersistGate } from "redux-persist/integration/react";
 import SignUp from "./Pages/SignUp/SignUp";
 import SignIn from "./Pages/SignIn/SignIn";
+import { SnackbarProvider } from "notistack";
 
 const App = () => {
   const router = createHashRouter([
@@ -39,7 +40,9 @@ const App = () => {
     <ConfigProvider theme={customTheme}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <RouterProvider router={router} />
+          <SnackbarProvider>
+            <RouterProvider router={router} />
+          </SnackbarProvider>
         </PersistGate>
       </Provider>
     </ConfigProvider>

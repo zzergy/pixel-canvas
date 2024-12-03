@@ -7,22 +7,32 @@ import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { signin } from "../../routes";
 import CustomFormField from "../../Shared/CustomFormField/CustomFormField";
+import { useSnackbar } from "notistack";
+import { useRegister } from "../../hooks/useRegister";
 
 const SignUp = () => {
+  const { enqueueSnackbar } = useSnackbar();
+  const { register } = useRegister();
   const initialValues: SignUpInitialValues = {
     email: "",
     password: "",
     confirmPassword: "",
   };
 
-  const onSubmit = (
+  const onSubmit = async (
     values: SignUpInitialValues,
-    { setSubmitting }: FormikHelpers<SignUpInitialValues>
+    { setSubmitting, resetForm }: FormikHelpers<SignUpInitialValues>
   ) => {
-    console.log(values);
+    await register({
+      email: values.email,
+      password: values.password,
+    });
+
     setSubmitting(false);
+    resetForm();
   };
 
+  console.log(process.env.REACT_APP_API_URL);
   return (
     <FLoatingPixelsBackground>
       <Formik

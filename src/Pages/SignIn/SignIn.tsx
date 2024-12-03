@@ -7,18 +7,21 @@ import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { signup } from "../../routes";
 import CustomFormField from "../../Shared/CustomFormField/CustomFormField";
+import { useLogin } from "../../hooks/useLogin";
 
 const SignIn = () => {
+  const { login } = useLogin();
   const initialValues: SignInInitialValues = {
     email: "",
     password: "",
   };
 
-  const onSubmit = (
-    values: SignInInitialValues,
-    { setSubmitting }: FormikHelpers<SignInInitialValues>
+  const onSubmit = async (
+    user: SignInInitialValues,
+    { setSubmitting, resetForm }: FormikHelpers<SignInInitialValues>
   ) => {
-    console.log(values);
+    await login(user);
+    resetForm();
     setSubmitting(false);
   };
 
