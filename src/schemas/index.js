@@ -2,6 +2,11 @@ import * as yup from "yup";
 
 const passwordRules = /^(?=.*[0-9])(?=.*[\W_])(?=.*[A-Z])(?=.*[a-z]).{5,}$/;
 export const signUpSchema = yup.object().shape({
+  username: yup
+    .string()
+    .min(4, "Password must be at least 4 characters")
+    .max(50, "Username can be at most 50 characterss")
+    .required("Required field"),
   email: yup
     .string()
     .email("Please enter a valid email")

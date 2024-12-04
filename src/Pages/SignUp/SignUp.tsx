@@ -11,9 +11,10 @@ import { useSnackbar } from "notistack";
 import { useRegister } from "../../hooks/useRegister";
 
 const SignUp = () => {
-  const { enqueueSnackbar } = useSnackbar();
   const { register } = useRegister();
+
   const initialValues: SignUpInitialValues = {
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -24,6 +25,7 @@ const SignUp = () => {
     { setSubmitting, resetForm }: FormikHelpers<SignUpInitialValues>
   ) => {
     await register({
+      username: values.username,
       email: values.email,
       password: values.password,
     });
@@ -32,7 +34,6 @@ const SignUp = () => {
     resetForm();
   };
 
-  console.log(process.env.REACT_APP_API_URL);
   return (
     <FLoatingPixelsBackground>
       <Formik
@@ -50,6 +51,12 @@ const SignUp = () => {
                   name="email"
                   type="text"
                   placeholder="Email"
+                  required
+                />
+                <CustomFormField
+                  name="username"
+                  type="text"
+                  placeholder="Username"
                   required
                 />
                 <CustomFormField

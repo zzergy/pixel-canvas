@@ -46,6 +46,7 @@ export type OddPixelSize = 1 | 3 | 5 | 7 | 9;
 export type Dimensions = Pick<CanvasData, "rows" | "columns">;
 
 export interface SignUpInitialValues {
+  username: string;
   email: string;
   password: string;
   confirmPassword: string;

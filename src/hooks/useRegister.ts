@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { canvas } from "../routes";
+import { signin } from "../routes";
 import { useSnackbar } from "notistack";
 
 interface User {
+  username: string;
   email: string;
   password: string;
 }
@@ -18,7 +19,7 @@ export const useRegister = () => {
       .post(`${apiUrl}/user/register`, user)
       .then((response) => {
         enqueueSnackbar(response.data.message, { variant: "success" });
-        if (response.status === 200) navigate(canvas);
+        if (response.status === 200) navigate(signin);
       })
       .catch((error: any) => {
         enqueueSnackbar(error.response?.data?.message || error.message, {

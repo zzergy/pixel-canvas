@@ -5,10 +5,10 @@ import bcrypt from "bcryptjs";
 export const register = async (req: Request, res: Response) => {
   try {
     //get the email and pass from the req body
-    const { email, password } = req.body;
+    const { email, password, username } = req.body;
 
     //check if the data is filled out
-    if (!email || !password) {
+    if (!email || !password || !username) {
       return res
         .status(400)
         .json({ message: "Please fill in all of the fields" });
@@ -30,8 +30,9 @@ export const register = async (req: Request, res: Response) => {
     const hashedPass = await bcrypt.hash(password, salt);
 
     // add the user to the database
-    const query = "INSERT INTO users (email, password) values ($1, $2)";
-    await pool.query(query, [email, hashedPass]);
+    const query =
+      "INSERT INTO users (email, password, username) values ($1, $2, $3)";
+    await pool.query(query, [email, hashedPass, username]);
 
     return res.status(200).json({ message: "User registered successfully!" });
   } catch (error) {
