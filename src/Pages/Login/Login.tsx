@@ -2,7 +2,7 @@ import { Form, Formik, FormikHelpers } from "formik";
 import { signInSchema } from "../../schemas";
 import { SignInInitialValues } from "../../types";
 import FLoatingPixelsBackground from "../../Shared/FloatingPixelsBackground/FloatingPixelsBackground";
-import styles from "./SignIn.module.scss";
+import styles from "./Login.module.scss";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { signup } from "../../routes";

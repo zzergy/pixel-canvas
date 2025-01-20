@@ -9,7 +9,7 @@ import { ConfigProvider } from "antd";
 import { customTheme } from "./customTheme";
 import { PersistGate } from "redux-persist/integration/react";
 import SignUp from "./Pages/SignUp/SignUp";
-import SignIn from "./Pages/SignIn/SignIn";
+import Login from "./Pages/Login/Login";
 import { SnackbarProvider } from "notistack";
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
     },
     {
       path: signin,
-      element: <SignIn />,
+      element: <Login />,
       errorElement: <ErrorPage />,
     },
   ]);
