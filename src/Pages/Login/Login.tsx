@@ -1,6 +1,6 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import { signInSchema } from "../../schemas";
-import { SignInInitialValues } from "../../types";
+import { LoginInitialValues } from "../../types";
 import FLoatingPixelsBackground from "../../Shared/FloatingPixelsBackground/FloatingPixelsBackground";
 import styles from "./Login.module.scss";
 import { Button } from "antd";
@@ -9,16 +9,16 @@ import { signup } from "../../routes";
 import CustomFormField from "../../Shared/CustomFormField/CustomFormField";
 import { useLogin } from "../../hooks/useLogin";
 
-const SignIn = () => {
+const Login = () => {
   const { login } = useLogin();
-  const initialValues: SignInInitialValues = {
+  const initialValues: LoginInitialValues = {
     email: "",
     password: "",
   };
 
   const onSubmit = async (
-    user: SignInInitialValues,
-    { setSubmitting, resetForm }: FormikHelpers<SignInInitialValues>
+    user: LoginInitialValues,
+    { setSubmitting, resetForm }: FormikHelpers<LoginInitialValues>
   ) => {
     await login(user);
     resetForm();
@@ -78,4 +78,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;

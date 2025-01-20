@@ -1,6 +1,6 @@
 import { Form, Formik, FormikHelpers } from "formik";
 import { signUpSchema } from "../../schemas";
-import { SignUpInitialValues } from "../../types";
+import { RegisterInitialValues } from "../../types";
 import FLoatingPixelsBackground from "../../Shared/FloatingPixelsBackground/FloatingPixelsBackground";
 import styles from "./Register.module.scss";
 import { Button } from "antd";
@@ -12,7 +12,7 @@ import { useRegister } from "../../hooks/useRegister";
 const Register = () => {
   const { register } = useRegister();
 
-  const initialValues: SignUpInitialValues = {
+  const initialValues: RegisterInitialValues = {
     username: "",
     email: "",
     password: "",
@@ -20,8 +20,8 @@ const Register = () => {
   };
 
   const onSubmit = async (
-    values: SignUpInitialValues,
-    { setSubmitting, resetForm }: FormikHelpers<SignUpInitialValues>
+    values: RegisterInitialValues,
+    { setSubmitting, resetForm }: FormikHelpers<RegisterInitialValues>
   ) => {
     await register({
       username: values.username,
