@@ -8,7 +8,7 @@ import store, { persistor } from "./store";
 import { ConfigProvider } from "antd";
 import { customTheme } from "./customTheme";
 import { PersistGate } from "redux-persist/integration/react";
-import SignUp from "./Pages/SignUp/SignUp";
+import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import { SnackbarProvider } from "notistack";
 
@@ -26,7 +26,7 @@ const App = () => {
     },
     {
       path: signup,
-      element: <SignUp />,
+      element: <Register />,
       errorElement: <ErrorPage />,
     },
     {

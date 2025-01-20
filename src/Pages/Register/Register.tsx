@@ -2,14 +2,14 @@ import { Form, Formik, FormikHelpers } from "formik";
 import { signUpSchema } from "../../schemas";
 import { SignUpInitialValues } from "../../types";
 import FLoatingPixelsBackground from "../../Shared/FloatingPixelsBackground/FloatingPixelsBackground";
-import styles from "./SignUp.module.scss";
+import styles from "./Register.module.scss";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { signin } from "../../routes";
 import CustomFormField from "../../Shared/CustomFormField/CustomFormField";
 import { useRegister } from "../../hooks/useRegister";
 
-const SignUp = () => {
+const Register = () => {
   const { register } = useRegister();
 
   const initialValues: SignUpInitialValues = {
@@ -98,4 +98,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Register;
