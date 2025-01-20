@@ -44,7 +44,11 @@ export type OddPixelSize = 1 | 3 | 5 | 7 | 9;
 
 //allows you to get a property from another interface into your type
 export type Dimensions = Pick<CanvasData, "rows" | "columns">;
-
+export interface User {
+  username: string;
+  email: string;
+  password: string;
+}
 export interface SignUpInitialValues {
   username: string;
   email: string;

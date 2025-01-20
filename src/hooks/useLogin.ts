@@ -14,8 +14,10 @@ export const useLogin = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const login = async (user: User) => {
+    console.log("Cookies before request:", document.cookie);
+
     await axios
-      .post(`${apiUrl}/user/login`, user)
+      .post(`${apiUrl}/user/login`, user, { withCredentials: true })
       .then((response) => {
         enqueueSnackbar(response.data.message, { variant: "success" });
         if (response.status === 200) navigate(canvas);
