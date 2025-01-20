@@ -7,7 +7,6 @@ import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { signin } from "../../routes";
 import CustomFormField from "../../Shared/CustomFormField/CustomFormField";
-import { useSnackbar } from "notistack";
 import { useRegister } from "../../hooks/useRegister";
 
 const SignUp = () => {
