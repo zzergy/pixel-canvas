@@ -1,6 +1,6 @@
 import Homepage from "./Pages/Homepage/Homepage";
 import { RouterProvider, createHashRouter } from "react-router-dom";
-import { canvas, homepage, signin, signup } from "./routes";
+import { canvas, homepage, profile, signin, signup } from "./routes";
 import ErrorPage from "./Shared/ErrorPage/ErrorPage";
 import CanvasPage from "./Pages/CanvasPage/CanvasPage";
 import { Provider } from "react-redux";
@@ -11,6 +11,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import { SnackbarProvider } from "notistack";
+import ProfileModal from "./Pages/ProfileModal/ProfileModal";
 
 const App = () => {
   const router = createHashRouter([
@@ -32,6 +33,11 @@ const App = () => {
     {
       path: signin,
       element: <Login />,
+      errorElement: <ErrorPage />,
+    },
+    {
+      path: profile,
+      element: <ProfileModal />,
       errorElement: <ErrorPage />,
     },
   ]);
