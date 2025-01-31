@@ -18,6 +18,7 @@ export interface ModalStates {
   deleteCanvasModal?: boolean;
   createCanvasModal?: boolean;
   clearCanvasModal?: boolean;
+  profileModal?: boolean;
 }
 
 export enum ModalTypes {

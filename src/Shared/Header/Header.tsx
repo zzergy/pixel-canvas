@@ -3,12 +3,19 @@ import styles from "./Header.module.scss";
 import { faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 import { faCodeBranch, faUser } from "@fortawesome/free-solid-svg-icons";
 import logoFlask from "../../images/logoFlask.png";
-import { Link, useNavigate } from "react-router-dom";
-import { homepage, profile } from "../../routes";
+import { Link } from "react-router-dom";
+import { homepage } from "../../routes";
 import { Tooltip } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { setOpenState } from "../../slices/modalsSlice";
+import { RootState } from "../../store";
+import ProfileDropdown from "../../Pages/ProfileDropdown/ProfileDropdown";
 
 const Header = () => {
-  const navigate = useNavigate();
+  const { profileModal } = useSelector(
+    (state: RootState) => state.modalsOpenState
+  );
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.container}>
@@ -34,13 +41,14 @@ const Header = () => {
           </a>
         </Tooltip>
 
-        <Tooltip title="Profile" placement="bottomRight" arrow={false}>
-          <FontAwesomeIcon
-            icon={faUser}
-            className={styles.icon}
-            onClick={() => navigate(profile)}
-          />
-        </Tooltip>
+        <FontAwesomeIcon
+          icon={faUser}
+          className={styles.icon}
+          onClick={() =>
+            dispatch(setOpenState({ profileModal: !profileModal }))
+          }
+        />
+        <ProfileDropdown />
       </div>
     </div>
   );

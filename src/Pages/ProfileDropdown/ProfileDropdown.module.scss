@@ -1,12 +1,3 @@
-.icon {
-    &.selectable {
-        cursor: pointer;
-        &:hover {
-            background-color: var(--hover);
-        }
-    }
-}
-
 .list {
     .listItem {
         padding: 6px 12px;

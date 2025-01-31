@@ -1,6 +1,4 @@
 .container {
-    // position: sticky;
-    // top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +6,7 @@
     width: 100%;
     background-color: var(--navigation);
     border-bottom: 1px solid var(--border-gray);
-    padding: 0 20px 0 6px;
+    padding-left: 6px;
 
     .logo {
         height: 26px;
@@ -25,7 +23,7 @@
             cursor: pointer;
             color: white;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
 
             .medium {
                 font-size: 22px;

@@ -11,7 +11,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import Register from "./Pages/Register/Register";
 import Login from "./Pages/Login/Login";
 import { SnackbarProvider } from "notistack";
-import ProfileModal from "./Pages/ProfileModal/ProfileModal";
+import ProfileDropdown from "./Pages/ProfileDropdown/ProfileDropdown";
 
 const App = () => {
   const router = createHashRouter([
@@ -37,7 +37,7 @@ const App = () => {
     },
     {
       path: profile,
-      element: <ProfileModal />,
+      element: <ProfileDropdown />,
       errorElement: <ErrorPage />,
     },
   ]);
