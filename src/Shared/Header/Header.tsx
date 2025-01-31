@@ -12,7 +12,7 @@ import { RootState } from "../../store";
 import ProfileDropdown from "../../Pages/ProfileDropdown/ProfileDropdown";
 
 const Header = () => {
-  const { profileModal } = useSelector(
+  const { profileDropdown: profileModal } = useSelector(
     (state: RootState) => state.modalsOpenState
   );
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ const Header = () => {
           icon={faUser}
           className={styles.icon}
           onClick={() =>
-            dispatch(setOpenState({ profileModal: !profileModal }))
+            dispatch(setOpenState({ profileDropdown: !profileModal }))
           }
         />
         <ProfileDropdown />

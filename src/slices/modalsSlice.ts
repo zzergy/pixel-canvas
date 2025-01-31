@@ -5,7 +5,7 @@ const initialModalStates: ModalStates = {
   deleteCanvasModal: false,
   createCanvasModal: false,
   clearCanvasModal: false,
-  profileModal: false,
+  profileDropdown: false,
 };
 
 const modalsReducer = createSlice({

@@ -6,15 +6,15 @@ import { setOpenState } from "../../slices/modalsSlice";
 
 const ProfileDropdown = () => {
   const dispatch = useDispatch();
-  const { profileModal } = useSelector(
+  const { profileDropdown } = useSelector(
     (state: RootState) => state.modalsOpenState
   );
 
   return (
     <Popover
       trigger="click"
-      open={profileModal}
-      onOpenChange={(open) => dispatch(setOpenState({ profileModal: open }))}
+      open={profileDropdown}
+      onOpenChange={(open) => dispatch(setOpenState({ profileDropdown: open }))}
       arrow={false}
       placement="bottomRight"
       overlayStyle={{ top: "40px", right: "6px" }}
