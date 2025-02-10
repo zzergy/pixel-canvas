@@ -65,6 +65,7 @@ const FileMenu = () => {
         onOpenChange={(open) => setOpen(open)}
         placement="right"
         className={styles.fileMenu}
+        overlayStyle={{ top: "50px", left: "35px" }}
         content={
           <div className={styles.list}>
             {data.map(

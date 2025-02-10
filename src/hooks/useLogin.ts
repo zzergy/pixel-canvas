@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { canvas } from "../routes";
 import { useSnackbar } from "notistack";
+import { useDispatch } from "react-redux";
 
 interface User {
   email: string;
@@ -11,6 +12,7 @@ interface User {
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const useLogin = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const login = async (user: User) => {

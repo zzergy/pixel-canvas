@@ -1,8 +1,10 @@
 .icon {
+    padding: 4px;
     &.selectable {
         cursor: pointer;
         &:hover {
             background-color: var(--hover);
+            border-radius: 4px;
         }
     }
 }

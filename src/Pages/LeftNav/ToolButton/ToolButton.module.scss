@@ -2,7 +2,6 @@
     background-color: transparent;
     border: none;
     border-radius: 4px;
-    margin-bottom: 12px;
     padding: 4px;
 
     &.disabled {
@@ -13,6 +12,9 @@
         &:hover {
             background-color: transparent;
             cursor: default;
+            padding: 4px;
+
+            border-radius: 4px;
         }
     }
 
@@ -22,7 +24,7 @@
     }
 
     &.active {
-        background-color: var(--empty-background);
+        background-color: var(--hover);
 
         &:hover {
             background-color: var(--hover);

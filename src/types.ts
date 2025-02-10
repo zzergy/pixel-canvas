@@ -36,6 +36,10 @@ export interface CanvasActionTools {
   historyIndex: number;
 }
 
+export interface UserState {
+  user: User | null;
+}
+
 export const PIXEL_WIDTH = 10;
 export const PIXEL_HEIGHT = 10;
 export const LEFT_NAV_WIDTH = 40;
